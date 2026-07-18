@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Ordem de Serviço - Movistar Logística</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="btn-toggle-historico" id="btnToggle" onclick="alternarPainelHistorico()">
+    <span id="btnToggleIcon">📋</span> <span id="btnToggleText">Ver Histórico</span>
+</button>
+
+<div class="popup-acoes-menu" id="popupMenuAcoes">
+    <button type="button" class="popup-acoes-item item-imprimir" id="popupBtnImprimir">
+        🖨️ Reimprimir OS
+    </button>
+    <button type="button" class="popup-acoes-item item-alterar" id="popupBtnAlterar">
+        ✏️ Alterar Ordem
+    </button>
+    <button type="button" class="popup-acoes-item item-excluir" id="popupBtnExcluir">
+        🗑️ Excluir Ordem
+    </button>
+</div>
+
+<div class="dashboard-layout" id="layoutPrincipal">
+    
+    <div class="column-left">
+        <div class="container">
+            <div class="header">
+                <div class="logo-container"><img src="./img/LOGO MOVISTAR.png" alt="Movistar Logística"></div>
+                <h2>Ordem de Serviço de Manutenção</h2>
+            </div>
+            
+            <form id="osForm">
+                <div class="form-section">
+                    <div class="section-title">Identificação da Demanda</div>
+                    <div class="form-row" style="margin-bottom: 10px;">
+                        <div class="form-group">
+                            <label for="dataSolicitacao">Data da Solicitação</label>
+                            <input type="date" id="dataSolicitacao" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectFrota">Frota</label>
+                            <div class="search-input-container">
+                                <select id="selectFrota" required>
+                                    <option value="" disabled selected>Selecione a Frota...</option>
+                                    <option value="2154">2154</option><option value="2260">2260</option><option value="2261">2261</option><option value="2263">2263</option><option value="2468">2468</option><option value="2469">2469</option><option value="2470">2470</option><option value="2471">2471</option><option value="2472">2472</option><option value="2473">2473</option><option value="2474">2474</option><option value="2475">2475</option><option value="2476">2476</option><option value="2477">2477</option><option value="2477">2477</option><option value="2478">2478</option><option value="2479">2479</option><option value="2480">2480</option><option value="2481">2481</option><option value="2482">2482</option><option value="2483">2483</option><option value="2484">2484</option><option value="2485">2485</option><option value="2486">2486</option><option value="2487">2487</option><option value="2488">2488</option><option value="2489">2489</option><option value="2490">2490</option><option value="2491">2491</option><option value="2493">2493</option><option value="2494">2494</option><option value="2495">2495</option><option value="2496">2496</option><option value="2497">2497</option><option value="2498">2498</option><option value="2499">2499</option><option value="2500">2500</option><option value="2501">2501</option><option value="2502">2502</option><option value="2503">2503</option><option value="2504">2504</option><option value="2505">2505</option><option value="2506">2506</option><option value="2507">2507</option><option value="2508">2508</option><option value="2509">2509</option><option value="2510">2510</option><option value="2511">2511</option><option value="2512">2512</option><option value="2514">2514</option><option value="2515">2515</option><option value="2516">2516</option><option value="2517">2517</option><option value="2518">2518</option><option value="2519">2519</option><option value="2520">2520</option><option value="2522">2522</option><option value="2523">2523</option><option value="2524">2524</option><option value="2525">2525</option><option value="2526">2526</option><option value="2527">2527</option><option value="2528">2528</option><option value="2529">2529</option><option value="2530">2530</option><option value="2531">2531</option><option value="2532">2532</option><option value="2533">2533</option><option value="2534">2534</option><option value="2535">2535</option><option value="2536">2536</option><option value="2537">2537</option><option value="2538">2538</option><option value="2539">2539</option><option value="2540">2540</option><option value="2541">2541</option><option value="2542">2542</option><option value="2543">2543</option><option value="2544">2544</option><option value="2545">2545</option><option value="2546">2546</option><option value="2547">2547</option><option value="2548">2548</option><option value="2549">2549</option><option value="2550">2550</option><option value="2551">2551</option><option value="2552">2552</option><option value="2553">2553</option><option value="2554">2554</option><option value="2555">2555</option><option value="2601">2601</option><option value="2602">2602</option><option value="2603">2603</option><option value="2604">2604</option><option value="2605">2605</option><option value="2606">2606</option><option value="2607">2607</option><option value="2608">2608</option><option value="2609">2609</option><option value="2610">2610</option><option value="2611">2611</option><option value="2612">2612</option><option value="2613">2613</option><option value="2614">2614</option><option value="2615">2615</option><option value="2616">2616</option><option value="2617">2617</option><option value="2618">2618</option><option value="2619">2619</option><option value="2620">2620</option><option value="2621">2621</option><option value="2623">2623</option><option value="2624">2624</option><option value="2625">2625</option><option value="2854">2854</option><option value="3150">3150</option><option value="3305">3305</option><option value="3201">3201</option><option value="3422">3422</option><option value="3420">3420</option><option value="3418">3418</option><option value="3601">3601</option><option value="3602">3602</option><option value="3410">3410</option><option value="3423">3423</option><option value="2258">2258</option><option value="2255">2255</option><option value="2058">2058</option><option value="2257">2257</option><option value="4356">4356</option><option value="4362">4362</option><option value="4366">4366</option><option value="4371">4371</option><option value="4372">4372</option><option value="4377">4377</option><option value="4380">4380</option><option value="4388">4388</option><option value="4038">4038</option><option value="4001">4001</option><option value="4006">4006</option><option value="4017">4017</option><option value="4023">4023</option><option value="4035">4035</option><option value="4036">4036</option><option value="4053">4053</option><option value="4062">4062</option><option value="6073">6073</option><option value="2622">2622</option><option value="1002">1002</option><option value="1003">1003</option><option value="1004">1004</option><option value="1005">1005</option>
+                                </select>
+                                <button type="button" class="btn-add-shortcut" onclick="adicionarFrotaManual()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="frota-grid-tela">
+                        <div class="form-group"><label>Placa</label><input type="text" id="txtPlaca" placeholder="Automático" disabled required></div>
+                        <div class="form-group"><label>Modelo Veículo</label><input type="text" id="txtModelo" placeholder="Automático" disabled required></div>
+                        <div class="form-group"><label>Filial Movistar</label><input type="text" id="txtFilial" placeholder="Automático" disabled required></div>
+                        <div class="form-group" style="grid-column: span 3; margin-top: 5px;"><label>CNPJ da Frota</label><input type="text" id="txtCnpj" placeholder="Automático" disabled required></div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Direcionamento</div>
+                    <div class="form-group">
+                        <label>Oficina / Prestador de Serviço</label>
+                        <div class="search-input-container">
+                            <select id="empresaParceira" required>
+                                <option value="" disabled selected>Selecione o Fornecedor...</option>
+                                <option value="MOADIESEL">MOADIESEL</option><option value="MOLAS TREVO">MOLAS TREVO</option><option value="CHASSI LASER">CHASSI LASER</option><option value="BETÃO DIESEL">BETÃO DIESEL</option><option value="MOADIESEL CHAVEIRO">MOADIESEL CHAVEIRO</option>
+                            </select>
+                            <button type="button" class="btn-add-shortcut" onclick="adicionarOficinaManual()">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Especificação Técnica</div>
+                    <div class="form-group" style="margin-bottom: 10px;"><label>1º Serviço (Obrigatório)</label><input type="text" id="servico1" placeholder="Ex: Troca de óleo" required></div>
+                    <div class="servicos-grid-tela">
+                        <div class="form-group"><label>2º Serviço</label><input type="text" id="servico2"></div>
+                        <div class="form-group"><label>3º Serviço</label><input type="text" id="servico3"></div>
+                    </div>
+                </div>
+
+                <button type="submit" id="btnSalvar"><span>Salvar no Sistema e Imprimir OS</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="column-right">
+        <div class="container" style="display: flex; flex-direction: column; height: 100%;">
+            <div class="panel-header">
+                <h3>Histórico de Ordens</h3>
+                <div style="font-size: 13px; font-weight: bold; color: var(--movistar-blue);">
+                    <span id="totalRegistros">Carregando...</span> 
+                    <span id="contadorSelecionados" style="color: #10b981; margin-left: 8px;">(0 selecionadas)</span>
+                </div>
+            </div>
+
+            <div class="filter-bar">
+                <div class="filter-group"><label>Nº OS</label><input type="text" id="filtroNumeroOS" placeholder="Ex: 5" oninput="filtrarHistorico()"></div>
+                <div class="filter-group"><label>Data Início</label><input type="date" id="filtroDataInicio" onchange="filtrarHistorico()"></div>
+                <div class="filter-group"><label>Data Fim</label><input type="date" id="filtroDataFim" onchange="filtrarHistorico()"></div>
+                <div class="filter-group"><label>Frota</label><input type="text" id="filtroFrota" placeholder="2470" oninput="filtrarHistorico()"></div>
+                <div class="filter-group"><label>Prestador</label><input type="text" id="filtroPrestador" placeholder="Oficina..." oninput="filtrarHistorico()"></div>
+                <div class="filter-group"><label>Serviço</label><input type="text" id="filtroServico" placeholder="Ex: óleo..." oninput="filtrarHistorico()"></div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-check"><input type="checkbox" id="checkMarcarTodos" onclick="marcarDesmarcarTodos(this)"></th>
+                            <th class="col-os">Nº OS</th>
+                            <th class="col-data">Data</th>
+                            <th class="col-frota">Frota</th>
+                            <th class="col-prestador">Prestador</th>
+                            <th>Serviços Solicitados</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dadosHistorico">
+                        <tr><td colspan="6" style="text-align: center; color: #888; padding: 20px;">Buscando dados na planilha Movistar...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination-container" id="boxPaginacao"></div>
+        </div>
+    </div>
+</div>
+
+<div class="print-header-layout">
+    <div class="print-logo-box"><img src="./img/LOGO MOVISTAR.png"></div>
+    <div class="print-title-box">
+        <h1>Ordem de Serviço</h1>
+        <p>SOLICITAÇÃO DE MANUTENÇÃO EXTERNA</p>
+        <div class="print-os-tag">Nº OS: <span id="printNumeroOS">---</span></div>
+    </div>
+</div>
+<div class="print-grid">
+    <div class="print-block"><div class="print-label">Data Solicitação</div><div class="print-value" id="printData"></div></div>
+    <div class="print-block"><div class="print-label">Frota / Prefixo</div><div class="print-value" id="printFrota"></div></div>
+    <div class="print-block"><div class="print-label">Placa</div><div class="print-value" id="printPlaca"></div></div>
+    <div class="print-block"><div class="print-label">Modelo Veículo</div><div class="print-value" id="printModelo"></div></div>
+    <div class="print-block"><div class="print-label">Filial Emissora</div><div class="print-value" id="printFilial"></div></div>
+    <div class="print-block"><div class="print-label">CNPJ Empresa</div><div class="print-value" id="printCnpj"></div></div>
+    <div class="print-block full-width"><div class="print-label">Oficina / Prestador de Serviço Destinado</div><div class="print-value" id="printOficina"></div></div>
+</div>
+<div class="print-textarea-lines">
+    <div class="print-label" style="margin-bottom: 15px;">Relação de Serviços a Serem Executados</div>
+    <div class="print-item-linha" id="printServico1"></div>
+    <div class="print-item-linha" id="printServico2"></div>
+    <div class="print-item-linha" id="printServico3"></div>
+</div>
+<div class="signature-container">
+    <div class="signature-date-box" id="printDataCidade">Cascavel - PR, ____ de _________________ de 2026.</div>
+    <div class="signature-box">MOVISTAR OPERAÇÕES LOGÍSTICAS</div>
+</div>
+<div class="footer-institutional">
+    <strong>MOVISTAR OPERAÇÕES LOGÍSTICAS LTDA</strong><br>AV BRASIL, 333 SALA 03 - PACAEMBU - CEP: 85816-302 - CASCAVEL - PR<br>Fone: 45 2101-3077 | E-mail: transporte@destromacro.com.br
+</div>
+
+<!-- Link para o arquivo JavaScript externo -->
+<script src="script.js"></script>
+</body>
+</html>
